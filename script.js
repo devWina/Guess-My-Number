@@ -14,7 +14,7 @@ const displayScore = score => {
   document.querySelector('.score').textContent = score;
 };
 
-document.querySelector('.check').addEventListener('click', function () {
+const check = () => {
   const guess = Number(document.querySelector('.guess').value);
 
   // When is no input
@@ -45,17 +45,36 @@ document.querySelector('.check').addEventListener('click', function () {
       displayScore(0);
     }
   }
-});
+};
 
-document.querySelector('.again').addEventListener('click', function () {
+const again = () => {
   score = 20;
   secretNumber = Math.trunc(Math.random() * 20) + 1;
 
   document.querySelector('.guess').value = '';
   displayMessage('Start guessing...');
   displayNumber('?');
-  displayNumber(0);
   displayScore(score);
   document.querySelector('body').style.backgroundColor = '#222';
   document.querySelector('.number').style.width = '15rem';
+};
+
+document.querySelector('.check').addEventListener('click', check);
+// event listener to check when the Enter key is pressed
+document.addEventListener('keydown', function (e) {
+  console.log(e.key);
+
+  if (e.key === 'Enter') {
+    check();
+  }
+});
+
+document.querySelector('.again').addEventListener('click', again);
+// event listener to check when the Esc key is pressed
+document.addEventListener('keydown', function (e) {
+  console.log(e.key);
+
+  if (e.key === 'Escape') {
+    again();
+  }
 });
