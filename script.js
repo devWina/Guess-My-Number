@@ -59,6 +59,7 @@ const again = () => {
   document.querySelector('.number').style.width = '15rem';
 };
 
+// click event for the "Check!" button
 document.querySelector('.check').addEventListener('click', check);
 // event listener to check when the Enter key is pressed
 document.addEventListener('keydown', function (e) {
@@ -69,6 +70,7 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
+// click event for the "Again!" button
 document.querySelector('.again').addEventListener('click', again);
 // event listener to check when the Esc key is pressed
 document.addEventListener('keydown', function (e) {
